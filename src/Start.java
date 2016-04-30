@@ -18,6 +18,9 @@ public class Start {
         
         System.out.println("=====");
         System.out.println("gitgtigti");
+        System.out.println("gitgtigti");
+        System.out.println("gitgtigti");
+        System.out.println("gitgtigti");
     }
     
 }
