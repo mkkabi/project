@@ -8,7 +8,7 @@ public class Shop implements Comparable<Shop>{
     
     private String nameID; 
    private  Worker currentEmploee;
-   static final Set<Shop> spisokShops=new TreeSet<>();
+   static final Set<Shop> spisokShops = new TreeSet<>();
 
     public Shop(String nameID) throws Exception {
         this.nameID = nameID;
@@ -31,16 +31,17 @@ public class Shop implements Comparable<Shop>{
     }
 
     public void setCurrentEmploee(Worker currentEmploee) {
-        this.currentEmploee = currentEmploee;
+        if(!currentEmploee.isCurrentlyWorking){
+            this.currentEmploee = currentEmploee;
+            currentEmploee.isCurrentlyWorking = true;
+        }
+        else
+            System.out.println(currentEmploee.name + " уже работает");
         //как исключить ситуацию закрепления 1 работника за несколькими точками
     }
-   
-    
-   //ArrayList<String> itemsInStock;
 
        @Override
     public int compareTo(Shop o) {
         return this.nameID.compareToIgnoreCase(o.nameID);
     }
-    
 }
