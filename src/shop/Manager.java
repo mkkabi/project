@@ -15,10 +15,8 @@ public class Manager extends Worker{
         super(name, password, login);
     }
     
-    public void addProducts(Shop shop,Map<Ingradient,Integer> korzina){
+    public void addProducts(Shop shop,Map<Ingradient,Integer> korzina){}
     
-    
-    }
     public void addWorkerInShop(Shop sh, Worker work){
        deleteWorker(work);
         sh.setCurrentEmploee(work);

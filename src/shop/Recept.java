@@ -8,9 +8,9 @@ import java.util.TreeSet;
 
 public class Recept {
     String name;
-    Map<Ingradient,Integer> sostav=new TreeMap<>();
+    Map<Ingradient,Integer> sostav = new TreeMap<>();
     int price;
-    static final Set<Recept> spisokReceptov=new TreeSet<>();
+    static final Set<Recept> spisokReceptov = new TreeSet<>();
 
     public Recept(String name, int price) {
         this.name = name;

@@ -2,11 +2,14 @@ package shop;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Worker {
     String name, password, login;
     //Shop currentWorkPlace;
     Date start;
+    Boolean isCurrentlyWorking = false;
 
     public Worker(String name, String password, String login) {
         this.name = name;
@@ -38,9 +41,7 @@ public class Worker {
         }
         return true;
     }
-    
-    
-    
+
     public boolean logIn(String log,String pas){
     boolean result=false;
     return result; 
