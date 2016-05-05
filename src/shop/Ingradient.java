@@ -11,6 +11,4 @@ public class Ingradient {
         this.proizvoditel = proizvoditel;
         this.price = price;
     }
-    
-    
 }

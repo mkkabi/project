@@ -48,6 +48,15 @@ public class Worker {
     }
     
     
-    public void makeOrder(){}
+    public void makeOrder(){
+    // сохранять каждый заказ в лог файл. 
+    }
     
+    public void synchronezeData(){
+    // отправлять данные из ф-и makeOrder в облако, затем очищать лог?
+    }
+    
+    public void showRecepts(){
+    // выводит список составленных менеджером рецептов на экран работника
+    }
 }
