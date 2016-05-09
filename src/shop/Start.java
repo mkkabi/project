@@ -1,5 +1,8 @@
 package shop;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Start {
 
     public static void main(String[] args) throws Exception {
@@ -23,8 +26,10 @@ public class Start {
         System.out.println("====");
         
         shop1.setCurrentEmploee(wasia);
-        System.out.println("222222");
         System.out.println(shop2.getCurrentEmploee());
         System.out.println(shop1.getCurrentEmploee());
+        Date currentDate=new Date();
+        SimpleDateFormat sd=new  SimpleDateFormat("dd/MM/yyyy");
+        System.out.println(sd.format(currentDate)); 
     }
 }

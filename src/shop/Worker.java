@@ -5,16 +5,22 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Worker {
+public class Worker implements Comparable<Worker>{
     String name, password, login;
     //Shop currentWorkPlace;
     Date start;
-    Boolean isCurrentlyWorking = false;
+    boolean isCurrentlyWorking = false;
+    private final static Set<Worker>  KATALOG_WORKER=new TreeSet<>();
 
     public Worker(String name, String password, String login) {
         this.name = name;
         this.password = password;
         this.login = login;
+        KATALOG_WORKER.add(this);
+    }
+
+    public static Set<Worker> getKATALOG_WORKER() {
+        return KATALOG_WORKER;
     }
 
     @Override
@@ -42,21 +48,31 @@ public class Worker {
         return true;
     }
 
-    public boolean logIn(String log,String pas){
+    public static boolean logIn(String log,String pas){
     boolean result=false;
+    for(Worker temp : KATALOG_WORKER){
+    result=(temp.login.compareTo(log)==0)&&(temp.password.compareTo(pas)==0)?true:false;
+    if(result)
+        break;
+    }
     return result; 
     }
     
     
-    public void makeOrder(){
-    // сохранять каждый заказ в лог файл. 
-    }
     
-    public void synchronezeData(){
-    // отправлять данные из ф-и makeOrder в облако, затем очищать лог?
-    }
     
     public void showRecepts(){
     // выводит список составленных менеджером рецептов на экран работника
     }
+
+    @Override
+    public String toString() {
+        return "Worker{" + "name=" + name + ", start=" + start + '}';
+    }
+
+    @Override
+    public int compareTo(Worker o) {
+      return name.compareToIgnoreCase(o.name);
+    }
+    
 }
