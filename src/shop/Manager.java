@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 public class Manager extends Worker{
     Vector<Shop> spisok=new Vector<>();
     Map<Ingradient,Integer> spisokIngr=new TreeMap<>();
+    final Vector<Recept> curentSpicokRecept = new Vector<>();
 
     public Manager(String name, String password, String login) {
         super(name, password, login);
