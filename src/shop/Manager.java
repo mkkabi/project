@@ -2,15 +2,17 @@ package shop;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Manager extends Worker{
-    Vector<Shop> spisok=new Vector<>();
+//    Set<Shop> spisok=new TreeSet<>();
     Map<Ingradient,Integer> spisokIngr=new TreeMap<>();
-    final Vector<Recept> curentSpicokRecept = new Vector<>();
+   // final Vector<Recept> curentSpicokRecept = new Vector<>();
 
     public Manager(String name, String password, String login) {
         super(name, password, login);

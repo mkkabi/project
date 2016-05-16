@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Worker implements Comparable<Worker>{
     String name, password, login;
@@ -16,7 +18,14 @@ public class Worker implements Comparable<Worker>{
         this.name = name;
         this.password = password;
         this.login = login;
-        KATALOG_WORKER.add(this);
+        if(!KATALOG_WORKER.add(this)){
+            try {
+                throw new Exception();
+            } catch (Exception ex) {
+                System.out.println("Проблема с дублированием имен пользователей");
+                
+            }
+        }
     }
 
     public static Set<Worker> getKATALOG_WORKER() {
