@@ -23,7 +23,7 @@ public class Shop implements Comparable<Shop>{
    private  Date currentDay;
    static final Set<Shop> spisokShops = new TreeSet<>();
    final NavigableMap<Date,Vector<Recept>>  jurnalShopSales=new TreeMap<>();
-
+   public Map<Ingradient, Integer> shopSklad = new TreeMap<>();
     public Shop(String nameID) throws Exception {
         this.nameID = nameID;
         if(!spisokShops.add(this)){
@@ -112,12 +112,12 @@ public void openWorkDay(){
 //        return prStart.or(prEnd);
 //    }
     
-    public void newReportShopForPeriod(Date start,Date end){
-        final NavigableMap<Date, Vector<Recept>> result = jurnalShopSales.subMap(start, true, end, true);//это список продаж за период
+    public int newReportShopForPeriod(Date start,Date end){
+      final NavigableMap<Date, Vector<Recept>> result = jurnalShopSales.subMap(start, true, end, true);//это список продаж за период
       final Vector<Integer> itogForPeriod=new Vector<>();
         if(result.isEmpty()){
            System.out.println("За период с "+start+" по "+end+" продаж не было !");
-       return;
+       return 0;
        }
        
        Map<Recept,Integer> tempS=new TreeMap<>();
@@ -163,7 +163,7 @@ public void openWorkDay(){
                 .mapToInt(Integer::intValue)
                 .sum();
          System.out.println("Итого по магазину за период -" +sumItogov);
-                
+         return sumItogov;       
     } 
     
     private String getDateFormat(Date d1){
