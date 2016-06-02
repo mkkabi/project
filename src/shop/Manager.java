@@ -79,9 +79,10 @@ public class Manager extends Worker{
     private void deleteWorker(Worker work) {
         for(Shop temp:Shop.spisokShops){
         if(temp.getCurrentEmploee().equals(work)){
-            temp.setCurrentEmploee(null);
-            break;
+             temp.setCurrentEmploee(null);
+             break;
         }
-    }
+        System.out.println(temp.getNameID());
+    } 
     }
 }

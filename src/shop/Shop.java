@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -23,12 +24,20 @@ public class Shop implements Comparable<Shop>{
    private  Date currentDay;
    static final Set<Shop> spisokShops = new TreeSet<>();
    final NavigableMap<Date,Vector<Recept>>  jurnalShopSales=new TreeMap<>();
+
    public Map<Ingradient, Integer> shopSklad = new TreeMap<>();
     public Shop(String nameID) throws Exception {
         this.nameID = nameID;
-        if(!spisokShops.add(this)){
+        if(spisokShops.add(this)){
+            System.out.println("Magazin dobavlen");
+        }else{
             throw new Exception("Duble name Shop");
-        }
+        } 
+    }
+    
+    public Date printDay(){
+        System.out.println(currentDay);
+        return currentDay;
     }
 public void openWorkDay(){
     //проверка нет ли такого дня в журнале, если нет то
